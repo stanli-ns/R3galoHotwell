@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Un regalo para ti 💙</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at 50% 45%, #183d70 0%, #08152d 35%, #02050d 75%);
+    color: white;
+}
+
+/* ================= ESTRELLAS ================= */
+
+.estrella {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px white;
+    animation: brillo 2s infinite alternate;
+}
+
+.e1 { top: 8%; left: 12%; }
+.e2 { top: 17%; left: 82%; animation-delay: .4s; }
+.e3 { top: 70%; left: 8%; animation-delay: .8s; }
+.e4 { top: 82%; left: 90%; animation-delay: 1.2s; }
+.e5 { top: 32%; left: 23%; animation-delay: .6s; }
+.e6 { top: 55%; left: 78%; animation-delay: 1.5s; }
+.e7 { top: 12%; left: 52%; animation-delay: .9s; }
+.e8 { top: 90%; left: 48%; animation-delay: .3s; }
+.e9 { top: 42%; left: 92%; animation-delay: 1.7s; }
+.e10 { top: 65%; left: 35%; animation-delay: .2s; }
+
+@keyframes brillo {
+    from {
+        opacity: .2;
+        transform: scale(.6);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.6);
+    }
+}
+
+/* ================= CONTENEDOR ================= */
+
+.contenedor {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+/* ================= MENSAJE ================= */
+
+.mensaje {
+    z-index: 20;
+    animation: entrada 2s ease forwards;
+}
+
+.mensaje h1 {
+    margin: 0;
+    font-size: clamp(38px, 7vw, 70px);
+    color: #9edfff;
+    text-shadow:
+        0 0 10px #168cff,
+        0 0 25px #168cff,
+        0 0 50px #168cff;
+}
+
+.mensaje p {
+    margin: 8px 0;
+    font-size: clamp(18px, 3vw, 27px);
+}
+
+.amor {
+    margin-top: 15px !important;
+    color: #ff9bd7;
+    font-weight: bold;
+    text-shadow: 0 0 15px #ff3fae;
+}
+
+@keyframes entrada {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= RAMO ================= */
+
+.ramo {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    margin-top: 20px;
+    animation: flotar 4s ease-in-out infinite;
+    z-index: 10;
+}
+
+@keyframes flotar {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+.tallo {
+    position: absolute;
+    width: 7px;
+    height: 145px;
+    background: #4caf73;
+    left: 112px;
+    top: 65px;
+    border-radius: 10px;
+    transform: rotate(-5deg);
+}
+
+.hoja {
+    position: absolute;
+    width: 65px;
+    height: 28px;
+    background: #4caf73;
+    border-radius: 100% 0;
+}
+
+.hoja1 {
+    left: 50px;
+    top: 130px;
+    transform: rotate(25deg);
+}
+
+.hoja2 {
+    left: 120px;
+    top: 145px;
+    transform: rotate(-25deg);
+}
+
+/* FLORES */
+
+.flor {
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #69d5ff;
+    box-shadow:
+        0 0 15px #35bfff,
+        0 0 35px #168cff;
+}
+
+.petalo {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #69d5ff;
+}
+
+.p1 {
+    top: -18px;
+    left: 9px;
+}
+
+.p2 {
+    top: 9px;
+    left: -18px;
+}
+
+.p3 {
+    top: 9px;
+    right: -18px;
+}
+
+.p4 {
+    bottom: -18px;
+    left: 9px;
+}
+
+.centro {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    background: #ffe58a;
+    border-radius: 50%;
+    left: 18px;
+    top: 18px;
+    z-index: 5;
+    box-shadow: 0 0 15px #ffe58a;
+}
+
+.flor1 {
+    left: 25px;
+    top: 25px;
+    transform: scale(.9);
+}
+
+.flor2 {
+    left: 90px;
+    top: 5px;
+    transform: scale(1.1);
+}
+
+.flor3 {
+    left: 145px;
+    top: 38px;
+    transform: scale(.85);
+}
+
+/* ================= HOT WHEELS ================= */
+
+/*
+   Los carros están construidos completamente
+   con HTML + CSS.
+*/
+
+.carro {
+    position: absolute;
+    width: 180px;
+    height: 75px;
+    z-index: 8;
+    animation: carroFlota 5s ease-in-out infinite;
+}
+
+/* CUERPO */
+
+.cuerpo {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 180px;
+    height: 42px;
+    background: linear-gradient(
+        to bottom,
+        #ff4b4b,
+        #c90019
+    );
+    border-radius: 35px 55px 12px 12px;
+    border: 3px solid #111;
+    box-shadow:
+        0 5px 10px #000,
+        0 0 18px rgba(255,40,60,.7);
+}
+
+/* CAPÓ */
+
+.capo {
+    position: absolute;
+    width: 55px;
+    height: 20px;
+    right: 5px;
+    bottom: 32px;
+    background: #e7192e;
+    border-radius: 30px 10px 0 0;
+}
+
+/* TECHO */
+
+.techo {
+    position: absolute;
+    width: 90px;
+    height: 38px;
+    left: 45px;
+    bottom: 42px;
+    background: #161a22;
+    border-radius: 55px 55px 5px 5px;
+    border: 3px solid #111;
+}
+
+/* VENTANAS */
+
+.vidrio {
+    position: absolute;
+    width: 72px;
+    height: 24px;
+    left: 54px;
+    bottom: 48px;
+    background: linear-gradient(
+        135deg,
+        #baf1ff,
+        #3f9ec9
+    );
+    border: 2px solid #111;
+    border-radius: 30px 30px 3px 3px;
+}
+
+/* DIVISIÓN DEL VIDRIO */
+
+.vidrio::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 21px;
+    background: #111;
+    left: 34px;
+}
+
+/* RUEDAS */
+
+.rueda {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    bottom: -1px;
+    background: #080808;
+    border-radius: 50%;
+    border: 4px solid #252525;
+    box-shadow: 0 0 4px #000;
+}
+
+.rueda::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 7px;
+    top: 7px;
+    border-radius: 50%;
+    background: #aeb5bc;
+    border: 3px solid #555;
+}
+
+.rueda1 {
+    left: 22px;
+}
+
+.rueda2 {
+    right: 22px;
+}
+
+/* LUCES */
+
+.luz {
+    position: absolute;
+    width: 13px;
+    height: 9px;
+    border-radius: 50%;
+    background: #fff5ad;
+    box-shadow: 0 0 12px #fff;
+    bottom: 32px;
+    right: 3px;
+}
+
+.luz2 {
+    position: absolute;
+    width: 11px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff3045;
+    bottom: 28px;
+    left: 3px;
+}
+
+/* DECORACIÓN */
+
+.raya {
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background: #ffcf33;
+    left: 35px;
+    bottom: 25px;
+    transform: skewX(-25deg);
+    box-shadow: 0 0 6px #ffcf33;
+}
+
+.logo {
+    position: absolute;
+    right: 32px;
+    bottom: 28px;
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    transform: rotate(-5deg);
+}
+
+/* POSICIONES */
+
+.carro1 {
+    left: 4%;
+    top: 47%;
+    transform: rotate(-8deg);
+}
+
+.carro2 {
+    right: 4%;
+    top: 58%;
+    transform: rotate(8deg) scale(.8);
+    animation-delay: 1.5s;
+}
+
+.carro3 {
+    left: 13%;
+    bottom: 8%;
+    transform: rotate(5deg) scale(.65);
+    animation-delay: 2.5s;
+}
+
+.carro2 .cuerpo {
+    background: linear-gradient(
+        to bottom,
+        #3095ff,
+        #0755c9
+    );
+}
+
+.carro3 .cuerpo {
+    background: linear-gradient(
+        to bottom,
+        #ff9c21,
+        #df4800
+    );
+}
+
+@keyframes carroFlota {
+    0%,100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -18px;
+    }
+}
+
+/* ================= BOTÓN ================= */
+
+.boton {
+    margin-top: 5px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #168cff;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow:
+        0 0 15px #168cff,
+        0 0 30px rgba(22,140,255,.5);
+    transition: .3s;
+    z-index: 30;
+}
+
+.boton:hover {
+    transform: scale(1.08);
+}
+
+/* ================= CORAZONES ================= */
+
+.corazon {
+    position: fixed;
+    bottom: -40px;
+    font-size: 25px;
+    pointer-events: none;
+    animation: subir 5s linear forwards;
+    z-index: 50;
+}
+
+@keyframes subir {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ESTRELLAS -->
+
+<div class="estrella e1"></div>
+<div class="estrella e2"></div>
+<div class="estrella e3"></div>
+<div class="estrella e4"></div>
+<div class="estrella e5"></div>
+<div class="estrella e6"></div>
+<div class="estrella e7"></div>
+<div class="estrella e8"></div>
+<div class="estrella e9"></div>
+<div class="estrella e10"></div>
+
+
+<!-- ================= CARRO 1 ================= -->
+
+<div class="carro carro1">
+
+    <div class="techo"></div>
+    <div class="vidrio"></div>
+
+    <div class="cuerpo"></div>
+
+    <div class="capo"></div>
+
+    <div class="raya"></div>
+
+    <div class="luz"></div>
+    <div class="luz2"></div>
+
+    <div class="rueda rueda1"></div>
+    <div class="rueda rueda2"></div>
+
+    <div class="logo">HW</div>
+
+</div>
+
+
+<!-- ================= CARRO 2 ================= -->
+
+<div class="carro carro2">
+
+    <div class="techo"></div>
+    <div class="vidrio"></div>
+
+    <div class="cuerpo"></div>
+
+    <div class="capo"></div>
+
+    <div class="raya"></div>
+
+    <div class="luz"></div>
+    <div class="luz2"></div>
+
+    <div class="rueda rueda1"></div>
+    <div class="rueda rueda2"></div>
+
+    <div class="logo">HW</div>
+
+</div>
+
+
+<!-- ================= CARRO 3 ================= -->
+
+<div class="carro carro3">
+
+    <div class="techo"></div>
+    <div class="vidrio"></div>
+
+    <div class="cuerpo"></div>
+
+    <div class="capo"></div>
+
+    <div class="raya"></div>
+
+    <div class="luz"></div>
+    <div class="luz2"></div>
+
+    <div class="rueda rueda1"></div>
+    <div class="rueda rueda2"></div>
+
+    <div class="logo">HW</div>
+
+</div>
+
+
+<!-- ================= CONTENIDO ================= -->
+
+<div class="contenedor">
+
+    <div class="mensaje">
+
+        <h1>Feliz 💙</h1>
+
+        <p>
+            Tú no te ibas a quedar sin tus carros...
+        </p>
+
+        <p>
+            aunque sean <strong>virtuales</strong> 🏎️
+        </p>
+
+        <p class="amor">
+            Ocupas gran parte d mi corazon, nunca lo olvides        </p>
+
+    </div>
+
+
+    <!-- RAMO -->
+
+    <div class="ramo">
+
+        <div class="tallo"></div>
+
+        <div class="hoja hoja1"></div>
+        <div class="hoja hoja2"></div>
+
+
+        <div class="flor flor1">
+
+            <div class="petalo p1"></div>
+            <div class="petalo p2"></div>
+            <div class="petalo p3"></div>
+            <div class="petalo p4"></div>
+
+            <div class="centro"></div>
+
+        </div>
+
+
+        <div class="flor flor2">
+
+            <div class="petalo p1"></div>
+            <div class="petalo p2"></div>
+            <div class="petalo p3"></div>
+            <div class="petalo p4"></div>
+
+            <div class="centro"></div>
+
+        </div>
+
+
+        <div class="flor flor3">
+
+            <div class="petalo p1"></div>
+            <div class="petalo p2"></div>
+            <div class="petalo p3"></div>
+            <div class="petalo p4"></div>
+
+            <div class="centro"></div>
+
+        </div>
+
+    </div>
+
+
+    <button class="boton" onclick="lanzarCorazones()">
+        💙 Abrir mi regalo
+    </button>
+
+</div>
+
+
+<script>
+
+function lanzarCorazones() {
+
+    for (let i = 0; i < 35; i++) {
+
+        const corazon = document.createElement("div");
+
+        corazon.className = "corazon";
+
+        corazon.innerHTML =
+            Math.random() > 0.5 ? "💙" : "💗";
+
+        corazon.style.left =
+            Math.random() * 100 + "vw";
+
+        corazon.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
+
+        corazon.style.fontSize =
+            (15 + Math.random() * 25) + "px";
+
+        document.body.appendChild(corazon);
+
+        setTimeout(() => {
+            corazon.remove();
+        }, 6500);
+    }
+}
+
+</script>
+
+</body>
+</html>
